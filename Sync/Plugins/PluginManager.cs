@@ -366,7 +366,7 @@ namespace Sync.Plugins
                 }
                 catch (FileNotFoundException e)
                 {
-                    CheckUnknownDependency(e.FileName.Substring(0, e.FileName.IndexOf(",") - 1));
+                    //CheckUnknownDependency(e.FileName.Substring(0, e.FileName.IndexOf(",") - 1));
                 }
                 catch (Exception e)
                 {
@@ -404,9 +404,9 @@ namespace Sync.Plugins
                     foreach (var item in hardDeps)
                     {
                         var target = allList.Select(p => p.GetCustomAttribute<SyncPluginID>())?.FirstOrDefault(p => p?.GUID == item.GUID);
-                        if (item.Require && target == null) CheckGUIDUpdate(item);
+                        // if (item.Require && target == null) CheckGUIDUpdate(item);
                         if (item.Version == null) continue;
-                        if (!CompareVersion(item.Version, target.Version)) CheckGUIDUpdate(item);
+                        // if (!CompareVersion(item.Version, target.Version)) CheckGUIDUpdate(item);
                     }
 
                     var softDeps = it.GetCustomAttributes<SyncSoftRequirePlugin>();
@@ -414,7 +414,7 @@ namespace Sync.Plugins
                     {
                         foreach (var dep in item.RequirePluguins)
                         {
-                            if (!allList.Any(p => p.Name.Contains(dep) || dep.Contains(p.Name))) CheckUnknownDependency(dep);
+                            //if (!allList.Any(p => p.Name.Contains(dep) || dep.Contains(p.Name))) CheckUnknownDependency(dep);
                         }
                     }
 
@@ -450,7 +450,7 @@ namespace Sync.Plugins
 
         private bool LateLoad(Type a)
         {
-            SyncRequirePlugin requireAttr = a.GetCustomAttribute<SyncRequirePlugin>();
+            //SyncRequirePlugin requireAttr = a.GetCustomAttribute<SyncRequirePlugin>();
             SyncSoftRequirePlugin softRequirePlugin = a.GetCustomAttribute<SyncSoftRequirePlugin>();
             IEnumerable<SyncPluginDependency> deps = a.GetCustomAttributes<SyncPluginDependency>();
             SyncPluginID pid = a.GetCustomAttribute<SyncPluginID>();
@@ -467,7 +467,7 @@ namespace Sync.Plugins
                 }
             }
 
-            if (requireAttr != null)
+            /*if (requireAttr != null)
             {
                 foreach (var item in requireAttr.RequirePluguins)
                 {
@@ -480,7 +480,7 @@ namespace Sync.Plugins
                         else return true;
                     }
                 }
-            }
+            }*/
 
             if (softRequirePlugin != null)
             {

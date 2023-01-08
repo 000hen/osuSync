@@ -8,92 +8,92 @@ namespace Sync.Tools
 {
     public class DefaultI18n : I18nProvider
     {
-        public static LanguageElement LANG_Loading = "读取中....";
-        public static LanguageElement LANG_Plugins = "已载入 {0:D} 个 插件";
-        public static LanguageElement LANG_Sources = "已载入 {0:D} 个 直播源";
-        public static LanguageElement LANG_Client = "已载入 {0:D} 个 Client";
-        public static LanguageElement LANG_Error = "不能初始化连接器，请确认是否已经安装直播源.";
-        public static LanguageElement LANG_Commands = "已载入 {0:D} 个 命令";
-        public static LanguageElement LANG_Filters = "已载入 {0:D} 个 过滤器";
-        public static LanguageElement LANG_Ready = "准备就绪。";
+        public static LanguageElement LANG_Loading = "讀取中....";
+        public static LanguageElement LANG_Plugins = "已載入 {0:D} 個插件";
+        public static LanguageElement LANG_Sources = "已載入 {0:D} 個直播來源";
+        public static LanguageElement LANG_Client = "已載入 {0:D} 個客戶端";
+        public static LanguageElement LANG_Error = "無法初始化連接器，請確認是否已安裝直播來源!";
+        public static LanguageElement LANG_Commands = "已載入 {0:D} 個命令";
+        public static LanguageElement LANG_Filters = "已載入 {0:D} 個過濾器";
+        public static LanguageElement LANG_Ready = "準備就緒!";
 
-        public static LanguageElement LANG_RqueireLogin = "请登录到RnW账号";
-        public static LanguageElement LANG_AccountName = "用户名:";
-        public static LanguageElement LANG_AccountPw = "密码:";
-        public static LanguageElement LANG_AccountSave = "账户保存成功! 将开始连接到服务器";
+        public static LanguageElement LANG_RqueireLogin = "請登入至RnW的帳戶";
+        public static LanguageElement LANG_AccountName = "帳戶名稱:";
+        public static LanguageElement LANG_AccountPw = "密碼:";
+        public static LanguageElement LANG_AccountSave = "帳號保存成功! 將連接至伺服器";
 
-        public static LanguageElement LANG_Start = "开始工作....";
-        public static LanguageElement LANG_Stopping = "停止工作...";
-        public static LanguageElement LANG_Restarting = "重新开始工作...";
+        public static LanguageElement LANG_Start = "開始執行....";
+        public static LanguageElement LANG_Stopping = "停止執行...";
+        public static LanguageElement LANG_Restarting = "重新啟動工作...";
 
-        public static LanguageElement LANG_LoadingPlugin = "载入 {0:S} 中...";
-        public static LanguageElement LANG_LoadPluginErr = "不能载入 {0:S} ({1:S})";
-        public static LanguageElement LANG_NotPluginErr = "插件{0:S} 非osuSync插件 ({1:S})";
+        public static LanguageElement LANG_LoadingPlugin = "載入 {0:S} 中...";
+        public static LanguageElement LANG_LoadPluginErr = "無法載入 {0:S} ({1:S})";
+        public static LanguageElement LANG_NotPluginErr = "附加元件 {0:S} 並非 osu!Sync 之附加元件 ({1:S})";
 
-        public static LanguageElement LANG_NotConfig = "请配置 'config.ini' 后再开始进行同步操作。";
-        public static LanguageElement LANG_NoSource = "无法找到任何直播源！请安装一个直播源。";
-        public static LanguageElement LANG_MissSource = "找不到默认匹配的直播源，直接使用第一个。";
-        public static LanguageElement LANG_SetSource = "设置 {0:S} 为直播弹幕源";
-        public static LanguageElement LANG_SupportSend = "提示:当前弹幕源支持游戏内发送到弹幕源的功能，请输入login [用户名] [密码] 来登录!(用户名、密码二者可选输入)";
-        public static LanguageElement LANG_CertLength = "Certification长度: {0:D}";
-        public static LanguageElement LANG_CertExist = "提示：当前已有登录Certification记录，如需覆盖，请输入login [用户名] [密码]进行覆盖！（用户名密码可选输入）";
-        public static LanguageElement LANG_SendNotReady = "当前Client未标志弹幕发送可用，请尝试使用Login登录";
+        public static LanguageElement LANG_NotConfig = "請先修改 'config.ini' 之後再開始進行同步操作。";
+        public static LanguageElement LANG_NoSource = "無法找到任何直播來源! 請先安裝一個直播來源。";
+        public static LanguageElement LANG_MissSource = "找不到預設匹配的直播來源，將使用第一個來源。";
+        public static LanguageElement LANG_SetSource = "設定 {0:S} 為直播彈幕來源";
+        public static LanguageElement LANG_SupportSend = "提示: 目前彈幕來源支持遊戲內發送至彈幕來源的功能，請輸入 login [帳號名稱] [密碼] 進行登入! (帳號名稱與密碼可選登入)";
+        public static LanguageElement LANG_CertLength = "憑證長度: {0:D}";
+        public static LanguageElement LANG_CertExist = "提示: 現階段已有登入憑證的紀錄，若您想覆蓋紀錄，請輸入 login [帳號名稱] [密碼] 來覆蓋紀錄！（帳號名稱與密碼可選登入）";
+        public static LanguageElement LANG_SendNotReady = "現階段戶用端並未標記彈幕發送可用，請嘗試 login 登入";
 
-        public static LanguageElement LANG_UnknowCommand = "未知命令！ 请输入help查看命令列表。";
-        public static LanguageElement LANG_CommandFail = "命令执行失败！ 请输入help查看命令列表。";
+        public static LanguageElement LANG_UnknowCommand = "未知指令! 請輸入 help 查看指令列表";
+        public static LanguageElement LANG_CommandFail = "指令執行失敗! 請輸入 help 查看指令列表";
 
-        public static LanguageElement LANG_ConfigFile = "配置文件";
+        public static LanguageElement LANG_ConfigFile = "設定文件";
 
-        public static LanguageElement LANG_UserCount = "用户总数变更: {0:D}";
-        public static LanguageElement LANG_UserCount_Change = "直播间围观人数{0:S}到{1:D}人";
+        public static LanguageElement LANG_UserCount = "用戶總數更動: {0:D}";
+        public static LanguageElement LANG_UserCount_Change = "直播觀看人數從 {0:S}人 至 {1:D}人";
         public static LanguageElement LANG_UserCount_Change_Increase = "增加";
-        public static LanguageElement LANG_UserCount_Change_Decrease = "减少";
+        public static LanguageElement LANG_UserCount_Change_Decrease = "減少";
 
-        public static LanguageElement LANG_Source_Disconnecting = "正在断开弹幕源服务器的连接....";
-        public static LanguageElement LANG_Source_Disconnected = "服务器连接被断开，3秒后重连！";
-        public static LanguageElement LANG_Source_Disconnected_Succ = "源服务器断开连接成功！";
-        public static LanguageElement LANG_Source_Connect = "正在连接弹幕源服务器....";
-        public static LanguageElement LANG_Source_Connected_Succ = "源服务器连接成功！";
+        public static LanguageElement LANG_Source_Disconnecting = "正在中斷與彈幕來源伺服器的連線...";
+        public static LanguageElement LANG_Source_Disconnected = "與伺服器連線中斷! 3秒後嘗試重新連線!";
+        public static LanguageElement LANG_Source_Disconnected_Succ = "與伺服器中斷連線成功!";
+        public static LanguageElement LANG_Source_Connect = "正在連線至彈幕來源伺服器....";
+        public static LanguageElement LANG_Source_Connected_Succ = "連接至彈幕來源伺服器成功!";
 
-        public static LanguageElement LANG_Current_Online = "当前在线人数: {0:D}";
-        public static LanguageElement LANG_Gift_Sent = "我送给你{O:D}份{1:S}!";
+        public static LanguageElement LANG_Current_Online = "目前上線人數: {0:D}";
+        public static LanguageElement LANG_Gift_Sent = "我送給你{O:D}份{1:S}!";
 
-        public static LanguageElement LANG_Config = "配置文件: ";
-        public static LanguageElement LANG_Config_Status_OK = "OK, 房间ID:{0}";
-        public static LanguageElement LANG_Config_Status_Fail = "尚未配置成功";
+        public static LanguageElement LANG_Config = "設定文件: ";
+        public static LanguageElement LANG_Config_Status_OK = "成功, 房間ID: {0}";
+        public static LanguageElement LANG_Config_Status_Fail = "設定失敗";
 
-        public static LanguageElement LANG_Source = "源{0:S}: ";
-        public static LanguageElement LANG_IRC = "Client:";
-        public static LanguageElement LANG_Danmaku = "弹幕发送:";
-        public static LanguageElement LANG_Status_Connected = "已连接";
-        public static LanguageElement LANG_Status_NotConenct = "未连接";
+        public static LanguageElement LANG_Source = "來源{0:S}: ";
+        public static LanguageElement LANG_IRC = "客戶端: ";
+        public static LanguageElement LANG_Danmaku = "彈幕發送: ";
+        public static LanguageElement LANG_Status_Connected = "已連線";
+        public static LanguageElement LANG_Status_NotConenct = "未連線";
 
-        public static LanguageElement LANG_Loading_Config = @"正在读取配置文件....\n";
+        public static LanguageElement LANG_Loading_Config = @"正在載入設定文件....\n";
 
-        public static LanguageElement LANG_Welcome = "欢迎使用 osu直播弹幕同步工具 ver {0:S} ";
-        public static LanguageElement LANG_Help = @"输入 'help' 获得帮助列表\n\n";
-        public static LanguageElement LANG_Command = "命令";
+        public static LanguageElement LANG_Welcome = "歡迎使用 osu!Sync ver.{0:S} (Rebuild by Muisnow) ";
+        public static LanguageElement LANG_Help = @"輸入 help 取得指令列表\n\n";
+        public static LanguageElement LANG_Command = "指令";
         public static LanguageElement LANG_Command_Description = "描述";
 
-        public static LanguageElement LANG_MsgMgr_Limit = "当前消息管理器 开始 管制，只有?send命令的内容才会发送到irc频道";
-        public static LanguageElement LANG_MsgMgr_Free = "当前消息管理器 解除 管制,内容可以直接发送到irc频道";
-        public static LanguageElement LANG_Plugin_Cycle_Reference = "发现插件之间的循环引用关系，插件 {0:S} 将不会按照开发者指定的依赖关系进行加载";
+        public static LanguageElement LANG_MsgMgr_Limit = "目前訊息管理工具「開始」管制訊息，僅有 ?send 指令的內容才會發送至IRC頻道";
+        public static LanguageElement LANG_MsgMgr_Free = "目前訊息管理工具「解除」管制訊息，所有內容皆可直接發送至IRC頻道";
+        public static LanguageElement LANG_Plugin_Cycle_Reference = "發現部分附加元件產生循環引用之錯誤，附加元件 {0:S} 可能將不會依照原本開發者所指定的方式載入";
 
 
         //from default plugin
-        public static LanguageElement LANG_COMMANDS_LOGIN = "login <user> [pass] 登录到目标弹幕网站，启动弹幕发送功能";
-        public static LanguageElement LANG_COMMANDS_EXIT = "退出软件";
-        public static LanguageElement LANG_COMMANDS_CLEAR = "清空屏幕";
-        public static LanguageElement LANG_COMMANDS_STATUS = "获得当前连接状态属性";
-        public static LanguageElement LANG_COMMANDS_STOP = "停止当前连接";
-        public static LanguageElement LANG_COMMANDS_START = "开始同步";
-        public static LanguageElement LANG_COMMANDS_HELP = "打印帮助信息";
-        public static LanguageElement LANG_COMMANDS_SOURCEMSG = "danmaku <message> 发送弹幕测试";
-        public static LanguageElement LANG_COMMANDS_CLIENTMSG = "chat <message> 发送IRC信息测试";
-        public static LanguageElement LANG_COMMANDS_CLIENTUSERMSG = "chatuser <username> <message> 按照username名字发送IRC信息测试";
-        public static LanguageElement LANG_COMMANDS_EXIT_DONE = "退出操作已完成，如果窗口还未关闭，您可以强制关闭。";
-        public static LanguageElement LANG_COMMANDS_SOURCES = "获得当前所有弹幕源列表";
-        public static LanguageElement LANG_COMMANDS_MSGMGR = "查看或者设置消息控制器相关内容,添加--help参数获取帮助";
+        public static LanguageElement LANG_COMMANDS_LOGIN = "login <user> [pass] 登入至目標的彈幕來源，並啟用彈幕發送功能";
+        public static LanguageElement LANG_COMMANDS_EXIT = "離開 osu!Sync";
+        public static LanguageElement LANG_COMMANDS_CLEAR = "清空狀態";
+        public static LanguageElement LANG_COMMANDS_STATUS = "取得現階段連線狀態";
+        public static LanguageElement LANG_COMMANDS_STOP = "中斷當前的連線";
+        public static LanguageElement LANG_COMMANDS_START = "開始同步";
+        public static LanguageElement LANG_COMMANDS_HELP = "顯示幫助訊息";
+        public static LanguageElement LANG_COMMANDS_SOURCEMSG = "danmaku <message> 發送測試彈幕";
+        public static LanguageElement LANG_COMMANDS_CLIENTMSG = "chat <message> 發送測試IRC訊息";
+        public static LanguageElement LANG_COMMANDS_CLIENTUSERMSG = "chatuser <username> <message> 發送測試訊息至username";
+        public static LanguageElement LANG_COMMANDS_EXIT_DONE = "程式已結束執行，您可以關閉此視窗。";
+        public static LanguageElement LANG_COMMANDS_SOURCES = "取得目前的所有彈幕來源表";
+        public static LanguageElement LANG_COMMANDS_MSGMGR = "查看或設定訊息控制器相關的內容，使用 --help 參數取得幫助";
         public static LanguageElement LANG_COMMANDS_FILTERS = "列表所有当前可用消息过滤器";
         public static LanguageElement LANG_COMMANDS_DISABLE = "向插件发送禁用消息 disable (插件名称)";
         public static LanguageElement LANG_COMMANDS_SWITCH_CLIENT = "切换到指定Client实例，不带名称则为获取Client列表";
