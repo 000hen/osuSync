@@ -30,9 +30,6 @@ namespace Sync.Tools
         [Bool]
         public ConfigurationElement EnableGiftChangedNotify { get; set; } = "False";
 
-        [Bool]
-        public ConfigurationElement CheckUpdateOnStartup { get; set; } = "True";
-
         [List(ValueList = new[] { "Auto", "ForceAll", "OnlySendCommand", "DisableAll" }, IgnoreCase = true)]
         public ConfigurationElement MessageManagerDefaultOption { get; set; } = "Auto";
 
@@ -53,10 +50,6 @@ namespace Sync.Tools
 
         public static readonly DefaultConfiguration Instance = new DefaultConfiguration();
         private static readonly PluginConfigurationManager config = new PluginConfigurationManager("Sync");
-        static DefaultConfiguration()
-        {
-            config.AddItem(Instance);
-        }
 
     }
 }

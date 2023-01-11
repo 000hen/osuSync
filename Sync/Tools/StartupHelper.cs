@@ -22,9 +22,9 @@ namespace Sync.Tools
 
         private static bool HandlerRoutine(int CtrlType)
         {
-            CurrentIO.Write("Exiting...");
+            CurrentIO.Write("退出中...");
             SyncHost.Instance?.SaveSync();
-            CurrentIO.Write("Saved.");
+            CurrentIO.Write("已儲存狀態。");
             SetConsoleCtrlHandler(cancelHandler, false);
             return true;
         }
@@ -82,10 +82,6 @@ namespace Sync.Tools
 
         static void InitSync()
         {
-            //Apply update
-            if (Updater.ApplyUpdate(NeedUpdateSync))
-                Environment.Exit(0);
-
             //Add Console close event handler
             SetConsoleCtrlHandler(cancelHandler, true);
 
@@ -95,14 +91,6 @@ namespace Sync.Tools
 
             //Sync ready message to all plugins
             SyncHost.Instance.Plugins.ReadySync();
-
-            //Check update
-            if (DefaultConfiguration.Instance.CheckUpdateOnStartup.ToBool())
-                Updater.update.SyncUpdateCheck();
-
-            //Sync program update check
-            if (Updater.IsUpdated)
-                CurrentIO.WriteColor("Sync is already up to date!", ConsoleColor.Green);
 
         }
 

@@ -46,30 +46,12 @@ namespace Sync
             plugins = new PluginManager();
             CurrentIO.WriteColor(String.Format(LANG_Plugins, plugins.LoadPlugins()), ConsoleColor.Green);
 
-            //Initial danmaku source
-            sources = new SourceManager();
-            CurrentIO.WriteColor(String.Format(LANG_Sources, plugins.LoadSources()), ConsoleColor.Green);
-
-            //select a danmaku source by config
-            try
-            {
-                sourceWrapper = new SourceWorkWrapper(sources);
-                PluginEvents.Instance.RaiseEvent(new PluginEvents.InitSourceWarpperEvent(sourceWrapper));
-            }
-            catch
-            {
-                CurrentIO.Write("");
-                CurrentIO.WriteColor(LANG_Error, ConsoleColor.Red);
-                CurrentIO.WriteColor("Press enter to continue", ConsoleColor.Red);
-                CurrentIO.ReadCommand();
-            }
-
             //Get clients singleton
-            clients = ClientManager.Instance;
+            /*clients = ClientManager.Instance;
             CurrentIO.WriteColor(String.Format(LANG_Client, plugins.LoadClients()), ConsoleColor.Green);
 
             clientWrapper = new ClientWorkWrapper(clients);
-            PluginEvents.Instance.RaiseEvent(new PluginEvents.InitClientWarpperEvent(clientWrapper));
+            PluginEvents.Instance.RaiseEvent(new PluginEvents.InitClientWarpperEvent(clientWrapper));*/
 
             commands = new CommandManager();
             CurrentIO.WriteColor(String.Format(LANG_Commands, plugins.LoadCommnads()), ConsoleColor.Green);

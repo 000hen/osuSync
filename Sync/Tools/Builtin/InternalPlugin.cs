@@ -24,7 +24,5 @@ namespace Sync.Tools.Builtin
                 commonCommand.BindCommondCommand(p.Commands.Dispatch);
             });
         }
-
-        internal bool CheckUpdate(string guid) => PluginCommand.Instance.InternalUpdate(guid,true);
     }
 }

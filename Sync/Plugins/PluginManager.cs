@@ -338,8 +338,7 @@ namespace Sync.Plugins
             }
 
             if (got_locked_error)
-                IO.CurrentIO.WriteColor(String.Format("Opps,It seems your plugin dll files were locked by System.\n" +
-                               "Please view https://osu.ppy.sh/forum/t/685031/start=37 and https://osu.ppy.sh/forum/t/685031/start=24 to solve problem."), ConsoleColor.Red);
+                IO.CurrentIO.WriteColor(String.Format("糟糕! 看起來附加元件的dll檔案被系統禁止了! 你可以透過 對該dll檔案點擊右鍵 -> 內容 -> 解除封鎖 -> 套用 來解決問題"), ConsoleColor.Red);
 
             loadedList = new LinkedList<Type>();
 
@@ -404,19 +403,23 @@ namespace Sync.Plugins
                     foreach (var item in hardDeps)
                     {
                         var target = allList.Select(p => p.GetCustomAttribute<SyncPluginID>())?.FirstOrDefault(p => p?.GUID == item.GUID);
-                        // if (item.Require && target == null) CheckGUIDUpdate(item);
                         if (item.Version == null) continue;
-                        // if (!CompareVersion(item.Version, target.Version)) CheckGUIDUpdate(item);
                     }
 
+                    bool isMissingDeps = false;
                     var softDeps = it.GetCustomAttributes<SyncSoftRequirePlugin>();
                     foreach (var item in softDeps)
                     {
                         foreach (var dep in item.RequirePluguins)
                         {
-                            //if (!allList.Any(p => p.Name.Contains(dep) || dep.Contains(p.Name))) CheckUnknownDependency(dep);
+                            if (!allList.Any(p => p.Name.Contains(dep) || dep.Contains(p.Name)))
+                            {
+                                IO.CurrentIO.WriteColor(String.Format(LANG_MissingPlugin, it.Name, dep), ConsoleColor.Red);
+                                isMissingDeps = true;
+                            }
                         }
                     }
+                    if (isMissingDeps) continue;
 
                     if (LateLoad(it))
                     {
@@ -528,64 +531,6 @@ namespace Sync.Plugins
             return refRequireCheck.RequirePluguins.Contains(b);
         }
 
-        /// <summary>
-        /// True if <paramref name="b"/> is satisfy for the require of <paramref name="a"/>
-        /// </summary>
-        /// <param name="a">A version require</param>
-        /// <param name="b">Target version</param>
-        /// <returns></returns>
-        public static bool CompareVersion(string a, string b)
-        {
-            // v : less or equal
-            // x : must
-            // ^ : large or equal
-            char start = a[0];
-
-            Func<bool?, bool> converter;
-            if (start == 'v') converter = p => p == null || p.Value;
-            else if (start == '^') converter = p => p == null || !p.Value;
-            else converter = p => p == null;
-
-            string ta = a.Substring(1);
-
-            var va = ta.Split('.').Select(k => int.Parse(k)).ToArray();
-            var vb = b.Split('.').Select(k => int.Parse(k)).ToArray();
-
-            for (int i = 0; i < va.Length; i++)
-            {
-                bool val = va[i] > vb[i];
-                if (va[i] == vb[i]) continue;
-                else return converter(val);
-            }
-            return converter(null);
-        }
-
-        private void CheckUnknownDependency(string name)
-        {
-            if (Updater.update.InstallByKeyword(name, false))
-            {
-                SyncHost.Instance.ForceRestartSync();
-                throw new SyncPluginOutdateException($"Need restart application to update {name}");
-            }
-            else
-            {
-                throw new SyncMissingPluginException($"Can't install dependency plugin: {name}");
-            }
-        }
-
-        private void CheckGUIDUpdate(SyncPluginDependency item)
-        {
-            if (Updater.update.InternalUpdate(item.GUID, true))
-            {
-                SyncHost.Instance.ForceRestartSync();
-                throw new SyncPluginOutdateException($"Need restart application to update {item.GUID}");
-            }
-            else
-            {
-                throw new SyncMissingPluginException($"Can't install dependency plugin: {item.GUID}, version {item.Version}");
-            }
-        }
-
         private Plugin LoadPluginFormType(Type it)
         {
             object pluginTest = it.Assembly.CreateInstance(it.FullName);
@@ -665,8 +610,5 @@ namespace Sync.Plugins
     {
         public string GUID { get; }
         public string Version { get; set; }
-        public bool Require { get; set; }
-
-        public SyncPluginDependency(string guid) => GUID = guid;
     }
 }

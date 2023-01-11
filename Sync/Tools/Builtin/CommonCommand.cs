@@ -70,7 +70,7 @@ namespace Sync.Tools.Builtin
                     IO.CurrentIO.WriteColor(item.Author, ConsoleColor.White, true, false);
                 }
 
-                IO.CurrentIO.WriteColor(string.Format(LANG_COMMANDS_CURRENT, SyncHost.Instance.SourceWrapper?.Source?.Name ?? "还没指定发送源"), ConsoleColor.Green);
+                IO.CurrentIO.WriteColor(string.Format(LANG_COMMANDS_CURRENT, SyncHost.Instance.SourceWrapper?.Source?.Name ?? "沒有指定發送來源"), ConsoleColor.Green);
             }
             else
             {

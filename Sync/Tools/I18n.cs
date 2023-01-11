@@ -28,7 +28,8 @@ namespace Sync.Tools
 
         public static LanguageElement LANG_LoadingPlugin = "載入 {0:S} 中...";
         public static LanguageElement LANG_LoadPluginErr = "無法載入 {0:S} ({1:S})";
-        public static LanguageElement LANG_NotPluginErr = "附加元件 {0:S} 並非 osu!Sync 之附加元件 ({1:S})";
+        public static LanguageElement LANG_NotPluginErr = "附加元件 {0:S} 無法啟用 ({1:S})";
+        public static LanguageElement LANG_MissingPlugin = "附加元件 {0:$} 要求使用 {1:$} 但您尚未安裝，請先安裝該插件以啟用此插件";
 
         public static LanguageElement LANG_NotConfig = "請先修改 'config.ini' 之後再開始進行同步操作。";
         public static LanguageElement LANG_NoSource = "無法找到任何直播來源! 請先安裝一個直播來源。";
@@ -94,52 +95,52 @@ namespace Sync.Tools
         public static LanguageElement LANG_COMMANDS_EXIT_DONE = "程式已結束執行，您可以關閉此視窗。";
         public static LanguageElement LANG_COMMANDS_SOURCES = "取得目前的所有彈幕來源表";
         public static LanguageElement LANG_COMMANDS_MSGMGR = "查看或設定訊息控制器相關的內容，使用 --help 參數取得幫助";
-        public static LanguageElement LANG_COMMANDS_FILTERS = "列表所有当前可用消息过滤器";
-        public static LanguageElement LANG_COMMANDS_DISABLE = "向插件发送禁用消息 disable (插件名称)";
-        public static LanguageElement LANG_COMMANDS_SWITCH_CLIENT = "切换到指定Client实例，不带名称则为获取Client列表";
-        public static LanguageElement LANG_COMMANDS_SOURCELOGIN = "登录到弹幕源 sourcelogin [用户名] [密码]";
-        public static LanguageElement LANG_COMMANDS_RESTART = "重新启动应用程序";
-        public static LanguageElement LANG_COMMANDS_LANG = "lang [cultureName] Get/Set language";
-        public static LanguageElement LANG_COMMANDS_LISTLANG = "listlang [--all] List (supported/all) languages";
-        public static LanguageElement LANG_COMMANDS_FILTERS_ITEM = "过滤项";
-        public static LanguageElement LANG_COMMANDS_FILTERS_OBJ = "过滤器";
-        public static LanguageElement LANG_COMMANDS_CLIENT_NAME = "Client";
+        public static LanguageElement LANG_COMMANDS_FILTERS = "顯示目前可用的訊息過濾器";
+        public static LanguageElement LANG_COMMANDS_DISABLE = "禁用附加元件的發送功能 disable <附加元件名稱>";
+        public static LanguageElement LANG_COMMANDS_SWITCH_CLIENT = "切換至指定的戶用端，無名稱則顯示戶用端列表";
+        public static LanguageElement LANG_COMMANDS_SOURCELOGIN = "登入至彈幕來源 sourcelogin <user> [pass]";
+        public static LanguageElement LANG_COMMANDS_RESTART = "重新啟動 osu!Sync";
+        public static LanguageElement LANG_COMMANDS_LANG = "lang [cultureName] 取得或設定語言";
+        public static LanguageElement LANG_COMMANDS_LISTLANG = "listlang [--all] 取得可用語言";
+        public static LanguageElement LANG_COMMANDS_FILTERS_ITEM = "過濾選項";
+        public static LanguageElement LANG_COMMANDS_FILTERS_OBJ = "過濾器";
+        public static LanguageElement LANG_COMMANDS_CLIENT_NAME = "戶用端";
         public static LanguageElement LANG_COMMANDS_CLIENT_AUTHOR = "作者";
-        public static LanguageElement LANG_COMMANDS_SOURCES_NAME = "弹幕源";
-        public static LanguageElement LANG_COMMANDS_SOURCES_AUTHOR = "作者";
-        public static LanguageElement LANG_COMMANDS_CURRENT = "当前设置为 {0:S}";
-        public static LanguageElement LANG_COMMANDS_DANMAKU_NOT_SUPPORT = @"提示：当前弹幕源不支持发送弹幕，请更换弹幕源！\n";
-        public static LanguageElement LANG_COMMANDS_CHAT_IRC_NOTCONNECT = "osu! irc 尚未连接，您还不能发送消息。";
-        public static LanguageElement LANG_COMMANDS_DANMAKU_REQUIRE_LOGIN = "你必须登录才能发送弹幕!";
-        public static LanguageElement LANG_COMMANDS_START_ALREADY_RUN = "同步实例已经在运行。";
-        public static LanguageElement LANG_COMMANDS_ARGUMENT_WRONG = "参数不正确";
-        public static LanguageElement LANG_COMMANDS_MSGMGR_HELP = @"\n--status :查看当前消息管理器的信息\n--limit <数值> :是设置限制发送信息的等级，越低就越容易触发管控\n--option <名称> :是设置管控的方式，其中Auto是自动管控，ForceAll强行全都发送,ForceLimit是仅发送使用?send命令的消息,DisableAll是拦截任何管道内的信息";
+        public static LanguageElement LANG_COMMANDS_SOURCES_NAME = "彈幕來源";
+        public static LanguageElement LANG_COMMANDS_SOURCES_AUTHOR = "開發者";
+        public static LanguageElement LANG_COMMANDS_CURRENT = "目前設定為 {0:S}";
+        public static LanguageElement LANG_COMMANDS_DANMAKU_NOT_SUPPORT = @"提示: 已選彈幕來源不支持發送彈幕，請更換來源!\n";
+        public static LanguageElement LANG_COMMANDS_CHAT_IRC_NOTCONNECT = "osu! IRC頻道尚未連線，現階段無法發送訊息。";
+        public static LanguageElement LANG_COMMANDS_DANMAKU_REQUIRE_LOGIN = "你必須登入才能發送彈幕!";
+        public static LanguageElement LANG_COMMANDS_START_ALREADY_RUN = "osu!Sync 已經啟動了。";
+        public static LanguageElement LANG_COMMANDS_ARGUMENT_WRONG = "參數錯誤";
+        public static LanguageElement LANG_COMMANDS_MSGMGR_HELP = @"\n--status :顯示目前訊息管理器的資訊\n--limit <數字> :設定的等級越低，將有更高的機率觸發管制\n--option <名稱> :為設定管制模式，其中 Auto 為自動管制，ForceAll 強制全部發送，ForceLimit 限制僅能使用 ?send 指令發送，DisableAll 為封鎖任何管道的訊息";
         public static LanguageElement LANG_COMMANDS_MSGMGR_LIMIT = "限制中...";
-        public static LanguageElement LANG_COMMANDS_MSGMGR_FREE = "无限制";
-        public static LanguageElement LANG_COMMANDS_MSGMGR_STATUS = "MessageManager mode:{4:S},status:{0:D},queueCount/limitCount/recoverTime:{1}/{2}/{3}";
-        public static LanguageElement LANG_COMMANDS_MSGMGR_LIMIT_SPEED_SET = "设置限制发送速度等级为{0}";
-        public static LanguageElement LANG_COMMANDS_MSGMGR_LIMIT_STYPE_SET = "设置消息管理器的管制方式为{0}";
+        public static LanguageElement LANG_COMMANDS_MSGMGR_FREE = "無限制";
+        public static LanguageElement LANG_COMMANDS_MSGMGR_STATUS = "訊息管理器目前模式: {4:S}，狀態: {0:D}，列隊數量/上限數量/回復時間: {1}/{2}/{3}";
+        public static LanguageElement LANG_COMMANDS_MSGMGR_LIMIT_SPEED_SET = "設定訊息管理器發送速度限制等級至 {0}";
+        public static LanguageElement LANG_COMMANDS_MSGMGR_LIMIT_STYPE_SET = "設定訊息管理器管制模式至 {0}";
 
-        public static LanguageElement LANG_COMMANDS_START_NO_SOURCE = "还未钦定任何一个接收源";
-        public static LanguageElement LANG_COMMANDS_START_NO_CLIENT = "还未钦定任何一个发送源";
-        public static LanguageElement LANG_COMMANDS_CURRENT_LANG = "当前语言: {0:S}\t{1:S}";
-        public static LanguageElement LANG_COMMANDS_LANG_SWITCHED = "成功切换语言至 {1:S}({0:S})";
-        public static LanguageElement LANG_COMMANDS_LANG_NOT_FOUND = "切换语言失败,请检查语言代码参数是否正确";
+        public static LanguageElement LANG_COMMANDS_START_NO_SOURCE = "尚未設定一個接收來源";
+        public static LanguageElement LANG_COMMANDS_START_NO_CLIENT = "尚未設定一個發送來源";
+        public static LanguageElement LANG_COMMANDS_CURRENT_LANG = "目前語言: {0:S}\t{1:S}";
+        public static LanguageElement LANG_COMMANDS_LANG_SWITCHED = "更改語言至 {1:S}({0:S})";
+        public static LanguageElement LANG_COMMANDS_LANG_NOT_FOUND = "無法更改語言，請檢查語言代碼是否正規";
 
-        public static LanguageElement LANG_UPDATE_DONE = "更新完成,是否重启软件";
-        public static LanguageElement LANG_INSTALL_DONE = "下载完成,是否重启软件";
-        public static LanguageElement LANG_PLUGIN_NOT_FOUND = "插件 {0} 不存在";
-        public static LanguageElement LANG_REMOVE_DONE = "删除成功,是否重启软件";
-        public static LanguageElement LANG_VERSION_LATEST_OR_CANEL = "{0} 已是最新,或者已被用户取消更新操作";
-        public static LanguageElement LANG_UPDATE_CHECK_ERROR = "无法根据 [{0}] 检查更新 :  {1} : {2}";
-        public static LanguageElement LANG_UPDATE_ERROR = "无法更新 :  {0} : {1}";
+        public static LanguageElement LANG_UPDATE_DONE = "更新成功! 是否重新啟動 osu!Sync";
+        public static LanguageElement LANG_INSTALL_DONE = "下載成功! 是否重新啟動 osu!Sync";
+        public static LanguageElement LANG_PLUGIN_NOT_FOUND = "找不到附加元件 {0}";
+        public static LanguageElement LANG_REMOVE_DONE = "刪除成功! 是否重新啟動 osu!Sync";
+        public static LanguageElement LANG_VERSION_LATEST_OR_CANEL = "{0} 為最新版，或已被使用者取消更新";
+        public static LanguageElement LANG_UPDATE_CHECK_ERROR = "無法依據 [{0}] 檢查新: {1} : {2}";
+        public static LanguageElement LANG_UPDATE_ERROR = "無法更新: {0} : {1}";
 
-        public static LanguageElement LANG_SOURCE_NOT_SUPPORT_SEND = "接收源 {0} 并不支持发送功能";
-        public static LanguageElement LANG_NO_PLUGIN_SELECT = "还未钦定插件名称";
-        public static LanguageElement LANG_PLUGIN_DISABLED = "已禁用 ";
+        public static LanguageElement LANG_SOURCE_NOT_SUPPORT_SEND = "接收來源 {0} 不支持發送功能";
+        public static LanguageElement LANG_NO_PLUGIN_SELECT = "尚未定義附加元件名稱";
+        public static LanguageElement LANG_PLUGIN_DISABLED = "已禁用";
 
-        public static LanguageElement LANG_NO_ANY_SOURCE = "没有任何弹幕接收源,请检查Plugins目录或使用\"plugins install DefaultPlugin\"来安装默认插件";
-        public static LanguageElement LANG_Instance_Exist = "只能存在一个Sync进程，等待上一个Sync结束";
+        public static LanguageElement LANG_NO_ANY_SOURCE = "沒有任何彈幕接收來源，請檢查 Plugins 資料夾";
+        public static LanguageElement LANG_Instance_Exist = "有超過一個 osu!Sync 正在執行中，請關閉其他的 osu!Sync";
     }
 
     public interface I18nProvider
