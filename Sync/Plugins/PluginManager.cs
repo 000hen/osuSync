@@ -610,5 +610,8 @@ namespace Sync.Plugins
     {
         public string GUID { get; }
         public string Version { get; set; }
+        public bool Require { get; set; }
+
+        public SyncPluginDependency(string guid) => GUID = guid;
     }
 }
